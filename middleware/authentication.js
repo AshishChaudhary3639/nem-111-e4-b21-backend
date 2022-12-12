@@ -5,7 +5,12 @@ const authentication=(req,res,next)=>{
     const {taskname,status,tag}=req.body
     let token=req.headers.authorization.split(" ")[1]
 
+    // if(!token){
+    //     res.send({"err":"You are not authorized for this"})
+    // }
+    // else{
 
+    // }
     jwt.verify(token,process.env.SECRET,async(err,decode)=>{
         if(err){
             res.send({"err":"You can do this tast try to login first"})
